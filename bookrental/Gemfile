@@ -49,3 +49,5 @@ group :development do
   gem 'spring'
 end
 
+# Specify Ruby version in app
+ruby "2.3.1"
