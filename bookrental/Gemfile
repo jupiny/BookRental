@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 
 
+# Use Heroku
+gem 'rails_12factor', group: :production
 # Use postgresql
 gem 'pg'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
