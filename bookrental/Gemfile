@@ -1,6 +1,14 @@
 source 'https://rubygems.org'
 
 
+# Flexible authentication solution
+gem 'devise'
+# Read spreadsheet
+gem 'roo'
+# Use Heroku
+gem 'rails_12factor', group: :production
+# Use postgresql
+gem 'pg'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
 # Use mysql as the database for Active Record
@@ -45,3 +53,5 @@ group :development do
   gem 'spring'
 end
 
+# Specify Ruby version in app
+ruby "2.3.1"
