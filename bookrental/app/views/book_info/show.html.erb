@@ -1,12 +1,9 @@
+<h1><%= @book_info.bookname %></h1>
 <ul>
-  <% for book_info in @book_infos %>
-      <li><%= book_info.bookname %></li>
-        <ul>
-            <li>분야 : <%= book_info.field %></li>
-            <li>작가 : <%= book_info.author %></li>
-            <li>출판사 : <%= book_info.publisher %></li>
-            <li>ISBN : <%= book_info.isbn %></li>
-            <li>수량 : <%= book_info.books.count %></li>
-        </ul>
+  <% for book in @book_info.books %>
+    <li>ID : <%= book.id %></li>
+    <li>손상여부: <%= book.is_damaged %></li>
+    <li>분실여부: <%= book.is_lost %></li>
+    <li>대출자 : <%= book.borrower %></li>
   <% end %>
 </ul>

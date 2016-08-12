@@ -5,5 +5,6 @@ Rails.application.routes.draw do
 
   get 'home/index'
 
-  get '/bookinfos', to: 'book_info#show', as: 'book_infos'
+  get '/bookinfos', to: 'book_info#index'
+  get '/bookinfos/:id', to: 'book_info#show', as: 'bookinfo'
 end
