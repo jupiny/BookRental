@@ -23,7 +23,6 @@ books_xlsx = Roo::Excelx.new("app/assets/data/books.xlsx").sheet(0)
     bookinfo.books.create(
       is_damaged: false,
       is_lost: false,
-      is_loaned: false,
     )
   end
 end

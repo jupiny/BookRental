@@ -4,7 +4,7 @@ class CreateBooks < ActiveRecord::Migration
       t.belongs_to :book_info, index: true
       t.boolean :is_damaged
       t.boolean :is_lost
-      t.boolean :is_loaned
+      t.belongs_to :user, index: true, :default => '', :null => true
 
       t.timestamps null: false
     end
