@@ -1,11 +1,10 @@
-class CreateBooks < ActiveRecord::Migration
+class CreateBookInfos < ActiveRecord::Migration
   def change
-    create_table :books do |t|
+    create_table :book_infos do |t|
       t.string :field
       t.string :bookname
       t.string :author
       t.string :publisher
-      t.integer :quantity
       t.string :isbn
 
       t.timestamps null: false
