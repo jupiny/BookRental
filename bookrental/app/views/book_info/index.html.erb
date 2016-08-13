@@ -8,6 +8,7 @@
             <li>ISBN : <%= book_info.isbn %></li>
             <li>수량 : <%= book_info.books.count %></li>
             <li><%= link_to '상세정보', bookinfo_path(book_info) %></li>
+            <li><%= book_info.is_borrowable_str %></li>
         </ul>
   <% end %>
 </ul>
