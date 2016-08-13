@@ -4,6 +4,6 @@
     <li>ID : <%= book.id %></li>
     <li>손상여부: <%= book.is_damaged %></li>
     <li>분실여부: <%= book.is_lost %></li>
-    <li>대출자 : <%= book.borrower %></li>
+    <li><%= book.is_borrowable_str %></li>
   <% end %>
 </ul>
