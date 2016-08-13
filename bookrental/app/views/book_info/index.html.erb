@@ -1,14 +1,9 @@
 <ul>
   <% for book_info in @book_infos %>
-      <li><%= book_info.bookname %></li>
-        <ul>
-            <li>분야 : <%= book_info.field %></li>
-            <li>작가 : <%= book_info.author %></li>
-            <li>출판사 : <%= book_info.publisher %></li>
-            <li>ISBN : <%= book_info.isbn %></li>
-            <li>수량 : <%= book_info.books.count %></li>
-            <li><%= link_to '상세정보', bookinfo_path(book_info) %></li>
-            <li><%= book_info.is_borrowable_str %></li>
-        </ul>
+    <li><%= book_info.bookname %></li>
+      <ul>
+        <li><%= link_to '상세정보', bookinfo_path(book_info) %></li>
+        <li><%= book_info.is_borrowable_str %></li>
+      </ul>
   <% end %>
 </ul>

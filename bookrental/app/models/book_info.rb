@@ -9,4 +9,14 @@ class BookInfo < ActiveRecord::Base
     end
     return "대출불가"
   end
+
+  def is_borrowable_count
+    is_borrowable_count = 0
+    for book in self.books
+      if not book.borrower
+        is_borrowable_count += 1
+      end
+    end
+    return is_borrowable_count
+  end
 end
