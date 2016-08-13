@@ -3,7 +3,14 @@
     <li><%= book_info.bookname %></li>
       <ul>
         <li><%= link_to '상세정보', bookinfo_path(book_info) %></li>
-        <li><%= book_info.is_borrowable_str %></li>
+        <% if book_info.is_borrowable %>
+          <li>대출가능</li>
+          <%= form_for :book, url: check_out_path(book_info.get_borrowable_book), method: :patch do |f| %>
+            <%= f.submit "대출하기" %>
+          <% end %>
+        <% else %>
+          <li>대출불가</li>
+        <% end %>
       </ul>
   <% end %>
 </ul>

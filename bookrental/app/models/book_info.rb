@@ -1,16 +1,16 @@
 class BookInfo < ActiveRecord::Base
   has_many :books, dependent: :destroy
 
-  def is_borrowable_str
+  def is_borrowable
     for book in self.books
       if not book.borrower
-        return "대출가능"
+        return true 
       end
     end
-    return "대출불가"
+    return false
   end
 
-  def is_borrowable_count
+  def get_borrowable_count
     is_borrowable_count = 0
     for book in self.books
       if not book.borrower
@@ -18,5 +18,14 @@ class BookInfo < ActiveRecord::Base
       end
     end
     return is_borrowable_count
+  end
+
+  def get_borrowable_book
+    for book in self.books
+      if not book.borrower
+        return book
+      end
+    end
+    return nil
   end
 end
