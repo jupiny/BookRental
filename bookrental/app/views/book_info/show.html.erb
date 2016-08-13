@@ -6,7 +6,7 @@
   <p>전체 수량 : <%= @book_info.books.count %></p>
   <p>대출 가능 : <%= @book_info.get_borrowable_count %></p>
   <% if @book_info.is_borrowable %>
-    <%= form_for :book, url: borrow_book_path(@book_info.get_borrowable_book), method: :patch do |f| %>
+    <%= form_for :book, url: check_out_path(@book_info.get_borrowable_book), method: :patch do |f| %>
       <%= f.submit "대출하기" %>
     <% end %>
   <% end %>

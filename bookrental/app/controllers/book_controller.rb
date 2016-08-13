@@ -13,4 +13,11 @@ class BookController < ApplicationController
     current_user.borrowed_books << book
     redirect_to borrowed_books_path
   end
+
+  # 반납 
+  def check_in
+    book = Book.find(params[:id])
+    current_user.borrowed_books.delete(book)
+    redirect_to borrowed_books_path
+  end
 end

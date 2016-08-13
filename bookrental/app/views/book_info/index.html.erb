@@ -5,7 +5,7 @@
         <li><%= link_to '상세정보', bookinfo_path(book_info) %></li>
         <% if book_info.is_borrowable %>
           <li>대출가능</li>
-          <%= form_for :book, url: borrow_book_path(book_info.get_borrowable_book), method: :patch do |f| %>
+          <%= form_for :book, url: check_out_path(book_info.get_borrowable_book), method: :patch do |f| %>
             <%= f.submit "대출하기" %>
           <% end %>
         <% else %>
