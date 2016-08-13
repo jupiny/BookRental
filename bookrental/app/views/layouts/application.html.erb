@@ -7,6 +7,17 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<header>
+  <ul>
+    <% if user_signed_in? %>
+      <li><%= link_to '로그아웃', destroy_user_session_path, :method => :delete %></li>
+    <% else %>
+      <li><%= link_to '로그인', user_session_path %></li>
+    <% end %>
+    <li><%= link_to '전체 도서 목록', bookinfos_path %></li>
+    <li><%= link_to '대출 도서 목록', borrowed_books_path %></li>
+  </ul>
+</header>
 
 <%= yield %>
 

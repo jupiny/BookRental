@@ -1,0 +1,9 @@
+<ul>
+  <% for borrowed_book in @borrowed_books %>
+      <li><%= borrowed_book.book_info.bookname %></li>
+        <ul>
+          <li><%= link_to '상세정보', book_path(borrowed_book) %></li>
+        </ul>
+  <% end %>
+</ul>
+
