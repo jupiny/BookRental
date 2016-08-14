@@ -1,0 +1,38 @@
+<div class="container devise">
+    <div class="row">
+        <div class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2">
+            <div class="post-preview">
+                <h2>개인정보수정</h2>
+                <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+                  <%= devise_error_messages! %>
+
+                  <div class="field">
+                    <%= f.label :email %><br />
+                    <%= f.email_field :email, autofocus: true %>
+                  </div>
+
+                  <div class="field">
+                    <%= f.label :current_password %> <strong>( 반드시 입력 )</strong><br />
+                    <%= f.password_field :current_password, autocomplete: "off" %>
+                  </div>
+
+                  <div class="field">
+                    <%= f.label :password %> <strong>( 변경을 원하지 않으시면 비워두세요 )</strong><br />
+                    <%= f.password_field :password, autocomplete: "off" %>
+                  </div>
+
+                  <div class="field">
+                    <%= f.label :password_confirmation %><br />
+                    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+                  </div>
+
+
+                  <div class="actions">
+                      <%= f.submit "변경", :class => "btn btn-default" %>
+                  </div>
+                <% end %>
+            </div>
+            <hr>
+        </div>
+    </div>
+</div>

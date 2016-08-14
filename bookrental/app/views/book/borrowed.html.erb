@@ -1,0 +1,26 @@
+<div class="container book">
+    <div class="row">
+     <div class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2">
+        <table class="table">
+          <thead>
+            <tr>
+              <th><h4>도서명</h4></th>
+              <th><h4>반납</h4></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% for borrowed_book in @borrowed_books %>
+            <tr>
+              <td class="bookname"><h5><%= link_to borrowed_book.book_info.bookname, bookinfo_path(borrowed_book.book_info) %></h5></td>
+              <td>
+                <%= form_for :book, url: check_in_path(borrowed_book), method: :patch do |f| %>
+                  <%= f.submit "반납", :class => "btn btn-default" %>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+          </tbody>
+        </table>
+      </div>
+  </div>
+</div>
