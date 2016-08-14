@@ -1,0 +1,19 @@
+.devise h2 {
+  margin-bottom: 30px;
+}
+.devise input {
+  width: 100%;
+  margin-bottom: 20px;
+}
+.devise input[type="email"] {
+  margin-bottom: 20px;
+}
+.devise input[type="password"] {
+  margin-bottom: 20px;
+}
+.devise input[type="submit"] {
+  margin-top: 20px;
+}
+.devise .btn {
+  width: 100%;
+}

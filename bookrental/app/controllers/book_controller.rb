@@ -1,10 +1,8 @@
 class BookController < ApplicationController
+  before_action :authenticate_user!
+
   def borrowed
     @borrowed_books = current_user.borrowed_books
-  end
-
-  def show 
-    @book = Book.find(params[:id])
   end
 
   # 대출

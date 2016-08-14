@@ -1,16 +1,30 @@
-<ul>
-  <% for book_info in @book_infos %>
-    <li><%= book_info.bookname %></li>
-      <ul>
-        <li><%= link_to '상세정보', bookinfo_path(book_info) %></li>
-        <% if book_info.is_borrowable %>
-          <li>대출가능</li>
-          <%= form_for :book, url: check_out_path(book_info.get_borrowable_book), method: :patch do |f| %>
-            <%= f.submit "대출하기" %>
+<div class="container book">
+  <div class="row">
+     <div class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2">
+        <table class="table">
+          <thead>
+            <tr>
+              <th><h4>도서명</h4></th>
+              <th><h4>대출가능</h4></th>
+            </tr>
+          </thead>
+          <tbody>
+          <% for book_info in @book_infos %>
+            <tr>
+              <td class="bookname"><h5><%= link_to book_info.bookname, bookinfo_path(book_info) %></h5></td>
+              <% if book_info.is_borrowable %>
+                <td>
+                  <%= form_for :book, url: check_out_path(book_info.get_borrowable_book), method: :patch do |f| %>
+                    <%= f.submit "대출", :class => "btn btn-default" %>
+                  <% end %>
+                </td>
+              <% else %>
+                <td><h5 class="unborrowable">대출불가</h5></td>
+              <% end %>
+            </tr>
           <% end %>
-        <% else %>
-          <li>대출불가</li>
-        <% end %>
-      </ul>
-  <% end %>
-</ul>
+          </tbody>
+        </table>
+      </div>
+  </div>
+</div>

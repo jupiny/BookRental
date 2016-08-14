@@ -1,0 +1,16 @@
+.book .btn {
+  padding: 5px 25px;
+  text-align: center;
+}
+.book table>thead>tr>th {
+  text-align: center;
+}
+.book table>tbody>tr>td{
+  text-align: center;
+}
+.book table>tbody>tr>td.bookname {
+  text-align: left;
+}
+.book h5.unborrowable {
+  color: red;
+}

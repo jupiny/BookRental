@@ -3,7 +3,7 @@ class BookInfo < ActiveRecord::Base
 
   def is_borrowable
     for book in self.books
-      if not book.borrower
+      if book.is_borrowable
         return true 
       end
     end
