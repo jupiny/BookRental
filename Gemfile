@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+# Test Procfile 
+gem 'foreman'
 # Switch to a more robust webserver
 gem 'puma'
 # Makes it so easy to set configuration variables
