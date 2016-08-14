@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+# Switch to a more robust webserver
+gem 'puma'
 # Makes it so easy to set configuration variables
 gem 'figaro'
 # Upgrade to the latest version of Bundler
