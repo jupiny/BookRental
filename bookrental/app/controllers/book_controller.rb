@@ -5,10 +5,6 @@ class BookController < ApplicationController
     @borrowed_books = current_user.borrowed_books
   end
 
-  def show 
-    @book = Book.find(params[:id])
-  end
-
   # 대출
   def check_out
     book = Book.find(params[:id])
