@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
-
+# Upgrade to the latest version of Bundler
+gem 'bundler'
 # Flexible authentication solution
 gem 'devise'
 # Read spreadsheet
