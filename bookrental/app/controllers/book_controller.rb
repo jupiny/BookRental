@@ -1,4 +1,6 @@
 class BookController < ApplicationController
+  before_action :authenticate_user!
+
   def borrowed
     @borrowed_books = current_user.borrowed_books
   end
