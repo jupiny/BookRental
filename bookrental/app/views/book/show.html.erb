@@ -1,8 +1,76 @@
-<h1><%= @book.book_info.bookname %></h1>
-<p>분야 : <%= @book.book_info.field %></p>
-<p>작가 : <%= @book.book_info.author %></p>
-<p>출판사 : <%= @book.book_info.publisher %></p>
-<p>ISBN : <%= @book.book_info.isbn %></p>
-<%= form_for :book, url: check_in_path(@book), method: :patch do |f| %>
-<%= f.submit "반납하기" %>
-<% end %>
+<div class="container book">
+  <div class="row">
+     <div class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2">
+        <h2>도서정보</h2>
+        <hr>
+        <table class="table table-bordered">
+          <tbody>
+            <tr>
+              <td><h4>도서명</h4></td>
+              <td><h5><%= @book.book_info.bookname%></h5></td>
+            </tr>
+            <tr>
+              <td><h4>분야</h4></td>
+              <td><h5><%= @book.book_info.field %></h5></td>
+            </tr>
+            <tr>
+              <td><h4>작가</h4></td>
+              <td><h5><%= @book.book_info.author %></h5></td>
+            </tr>
+            <tr>
+              <td><h4>출판사</h4></td>
+              <td><h5><%= @book.book_info.publisher %></h5></td>
+            </tr>
+            <tr>
+              <td><h4>ISBN</h4></td>
+              <td><h5><%= @book.book_info.isbn %></h5></td>
+            </tr>
+            <tr>
+              <td><h4>전체수량</h4></td>
+              <td><h5><%= @book.book_info.books.count %></h5></td>
+            </tr>
+            <tr>
+              <td><h4>대출가능수량</h4></td>
+              <td><h5><%= @book.book_info.get_borrowable_count %></h5></td>
+            </tr>
+          </tbody>
+        </table>
+        <br>
+        <h2>전체목록</h2>
+        <hr>
+        <table class="table">
+          <thead>
+            <tr>
+              <th><h4>도서명</h4></th>
+              <th><h4>손상여부</h4></th>
+              <th><h4>분실여부</h4></th>
+              <th><h4>대출/반납</h4></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% for book in @book.book_info.books %>
+            <tr>
+              <td class="bookname"><h5><%= book.book_info.bookname %></h5></td>
+              <td><h5><%= book.is_damaged %></h5></td>
+              <td><h5><%= book.is_lost %></h5></td>
+              </td>
+              <% if book.borrower %>
+                <% if book.borrower == current_user %>
+                  <%= form_for :book, url: check_in_path(book), method: :patch do |f| %>
+                    <%= f.submit "반납", :class => "btn btn-default" %>
+                  <% end %>
+                <% else %>
+                  <h5 class="unborrowable">대출불가</h5>
+                <% end %>
+              <% else %>
+                <%= form_for :book, url: check_out_path(book), method: :patch do |f| %>
+                  <%= f.submit "대출", :class => "btn btn-default" %>
+                <% end %>
+              <% end %>
+            </tr>
+          <% end %>
+          </tbody>
+        </table>
+      </div>
+  </div>
+</div>
