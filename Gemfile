@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+# Makes it so easy to set configuration variables
+gem 'figaro'
 # Upgrade to the latest version of Bundler
 gem 'bundler'
 # Flexible authentication solution
